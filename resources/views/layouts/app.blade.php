@@ -16,10 +16,10 @@
 </head>
 
 <body>
-    <header>sono un header</header>
-    <main>
-        @yield('content')
-    </main>
+    @include('partials.header')
+    
+    @yield('content')
+   
     <footer></footer>
 
 <script src="{{asset('js/app.js')}}"></script>
