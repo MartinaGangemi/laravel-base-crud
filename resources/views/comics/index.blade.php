@@ -19,7 +19,12 @@
     <tbody>
         @foreach($comics as $comics)
         <tr>
-            <td></td>
+        <td class="py-1 px-2">{{ $comic['id'] }}</td>
+                <td class="py-1 px-2">{{ $comic['title'] }}</td>
+                <td class="py-1 px-2">${{ $comic['price'] }}</td>
+                <td class="py-1 px-2">{{ $comic['series'] }}</td>
+                <td class="py-1 px-2">{{ $comic['sale_date'] }}</td>
+                <td class="py-1 px-2">{{ $comic['type'] }}</td>
         </tr>
         @endforeach
     </tbody>
