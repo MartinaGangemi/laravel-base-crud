@@ -7,11 +7,11 @@
         @csrf 
     <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" name="title" id="title"  class="form-control">
+        <input type="text" name="title" id="title"  class="form-control" >
     </div>
     <div class="form-group">
         <label for="description">Description</label>
-        <input type="text" name="description" id="description"  class="form-control" >
+        <input type="text" name="description" id="description"  class="form-control"  value="{{ old('description') }}" >
     </div>
     <div class="form-group">
         <label for="thumb">Image</label>
@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
         <label for="price">Price</label>
-        <input type="text" name="price" id="price" class="form-control">
+        <input type="number" step="0.01" name="price" id="price" class="form-control">
     </div>
     <div class="form-group">
         <label for="series">series</label>
