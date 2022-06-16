@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/comics','ComicController@index')->name('comics.index');
+Route::post('/comics','ComicController@store')->name('comics.store');
 Route::get('/comics/addComic','ComicController@create')->name('comics.addComic');
