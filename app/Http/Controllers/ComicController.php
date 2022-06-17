@@ -25,7 +25,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        return view('comics.addComic');
+        return view('comics.create');
     }
 
     /**
@@ -35,8 +35,22 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-      //dd($request->all());
+    {   
+
+        $validated_data = $request->validate([
+            'title' => 'required|max:100',
+            'description'=> 'nullable|text',
+            'thumb' => 'required|url',
+            'price' => 'required|numeric',
+            'series' => 'required|max:100',
+            'sale_date' => 'nullable|date',
+            'type'=>'nullable|string',
+
+        ]);
+        Comic::create($validated_data);
+
+
+        //dd($request->all());
         $comic = new Comic();
         $comic->title = $request->title;
         $comic->description = $request->description;
@@ -47,6 +61,9 @@ class ComicController extends Controller
         $comic->type = $request->type;
         
         $comic->save();
+
+
+       
         return redirect()->route('comics.index');
 
     }
@@ -59,7 +76,8 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        //
+        
+        return view('comics.show', compact('comic'));
     }
 
     /**
