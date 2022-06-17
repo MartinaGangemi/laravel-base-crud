@@ -29,7 +29,7 @@
             <td class="py-1 px-2">{{ $comic->type }}</td>
             <td class="py-1 px-2"><a href="#">
                 <a href="{{route('comics.show', $comic->id )}}"><button class="btn btn-success mb-2">Visualizza</button></a>
-                <a href="#"><button class="btn btn-primary mb-2">Modifica</button></a>
+                <a href="{{route('comics.edit', $comic->id )}}"><button class="btn btn-primary mb-2">Modifica</button></a>
                 <a href="#"><button class="btn btn-danger">Elimina</button></a>
             </td>
             <td class="py-1 px-2"></td>
