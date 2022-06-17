@@ -16,7 +16,7 @@ class ComicController extends Controller
      */
     public function index()
     {
-        $comics = Comic::all();
+        $comics = Comic::orderByDesc('id')->get();
         return view('comics.index', compact('comics'));
     }
 
@@ -39,18 +39,8 @@ class ComicController extends Controller
     public function store(ComicRequest $request)
     {   
 
-        // $validated_data = $request->validate([
-        //     'title' => 'required|max:100',
-        //     'description'=> 'nullable',
-        //     'thumb' => 'required|url',
-        //     'price' => 'required|numeric',
-        //     'series' => 'required|max:100',
-        //     'sale_date' => 'nullable',
-        //     'type'=>'nullable',
-        // ]);
         $validated_data = $request->validated();
-        dd($validated_data);
-        Comic::create($validated_data);
+        
 
 
         //dd($request->all());
@@ -105,18 +95,9 @@ class ComicController extends Controller
      */
     public function update(ComicRequest $request, Comic $comic)
     {
-        //dd($request->all());
-        // $validated_data = $request->validate([
-        //     'title' => 'required|max:100',
-        //     'description'=> 'nullable',
-        //     'thumb' => 'required|url',
-        //     'price' => 'required|numeric',
-        //     'series' => 'required|max:100',
-        //     'sale_date' => 'nullable',
-        //     'type'=>'nullable',
-        // ]);
+        
         $validated_data = $request->validated();
-        dd($validated_data);
+        //dd($validated_data);
         $comic->update($validated_data);
         return redirect()->route('comics.index');
 
